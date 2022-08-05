@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# React modal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![forthebadge](https://img.shields.io/badge/Made%20with-Create%20React%20App-%230bcca7)](https://reactjs.org/docs/create-a-new-react-app.html)
+[![forthebadge](https://img.shields.io/badge/React-v18.2.0-%2361dafb)](https://reactjs.org/)
 
-## Available Scripts
+This modal is designed to be modular and work inside a React project.
 
-In the project directory, you can run:
+## What does the modal look like
 
-### `npm start`
+![Screenshot 2022-08-05 at 10-31-38 React App](https://user-images.githubusercontent.com/84042427/183037117-ed753a40-7c32-4e24-8fa6-c97ab5b879d1.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Install the modal in your project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm install ....
+```
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Make the modal work properly by setting its local state and adding the function that changes its state.
+Follow the example below to learn how to embed the modal in your component:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```javascript
+// Import the modal into your component
+import Modal from ".....";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const MyComponent = () => {
+   // Defines the opening state of the modal
+   const [modalIsOpen, setModalIsOpen] = useState(true);
 
-### `npm run eject`
+   // Add a function that will be used to close the modal when you click on the "close" button
+   const closeModal = () => {
+      setModalIsOpen(false);
+   };
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   // Add the modal in the "return" of your component, and give the values to its props
+   return (
+      <Modal
+         modalState={modalIsOpen} // Current state of the modal
+         setModalState={closeModal} // Event that closes the modal
+         text="I am a modal!" // Text to display inside the modal
+      />
+   );
+};
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### _Props used :_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Props         |   Type   |                                  Description |
+| ------------- | :------: | -------------------------------------------: |
+| modalState    | boolean  |                      Open or close the modal |
+| setModalState | function | Modifies the opening or closing of the modal |
+| text          |  string  |                  Text displayed in the modal |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Example
 
-## Learn More
+If you want to embed the modal in a form, see the example below:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<details><summary>See the example</summary>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+// We add a modal that launches when the form is submitted :
 
-### Code Splitting
+// Import the modal into your component
+import Modal from ".....";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const MyForm = () => {
+   // We start by setting the state of the modal to "false" in order to close it.
+   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-### Analyzing the Bundle Size
+   // In the form submit function, we change the state of the modal to "true" so that it opens when the form is submitted
+   const submitForm = () => {
+      setModalIsOpen(true);
+   };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   // We add a function that will close the modal when we click on the "close" button
+   const closeModal = () => {
+      setModalIsOpen(false);
+   };
 
-### Making a Progressive Web App
+   // We add the modal in the "return" of our component, and we give the values to its props
+   return (
+      <Modal
+         modalState={modalIsOpen} // Current state of the modal
+         setModalState={closeModal} // Event that closes the modal
+         text="Form sent!" // Text to display inside the modal
+      />
+   );
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+</details>
 
-### Advanced Configuration
+## Modal Styles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The modal is styled with css.
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
