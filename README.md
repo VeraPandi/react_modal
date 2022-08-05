@@ -7,7 +7,7 @@ This modal is designed to be modular and work inside a React project.
 
 ## What does the modal look like
 
-![Screenshot 2022-08-05 at 10-31-38 React App](https://user-images.githubusercontent.com/84042427/183037117-ed753a40-7c32-4e24-8fa6-c97ab5b879d1.png)
+![Modalms](https://user-images.githubusercontent.com/84042427/183117729-8fbeefa8-9254-410a-a383-4e6151e47eb2.png)
 
 ---
 
@@ -16,7 +16,7 @@ This modal is designed to be modular and work inside a React project.
 Install the modal in your project:
 
 ```
-npm install ....
+npm install react-modal-vpdi
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Follow the example below to learn how to embed the modal in your component:
 
 ```javascript
 // Import the modal into your component
-import Modal from ".....";
+import Modal from "react-modal-vpdi";
 
 const MyComponent = () => {
    // Defines the opening state of the modal
@@ -66,7 +66,7 @@ If you want to embed the modal in a form, see the example below:
 // We add a modal that launches when the form is submitted :
 
 // Import the modal into your component
-import Modal from ".....";
+import Modal from "react-modal-vpdi";
 
 const MyForm = () => {
    // We start by setting the state of the modal to "false" in order to close it.

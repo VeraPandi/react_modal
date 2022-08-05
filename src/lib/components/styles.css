@@ -1,0 +1,33 @@
+.modal {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   height: 37px;
+   width: 480px;
+   margin: auto;
+   padding: 20px 40px;
+   color: #fff;
+   box-shadow: #9d9d9db8 3px 3px 3px;
+   border-radius: 6px;
+   background-color: #3b3c38;
+}
+
+.modal-close-btn {
+   position: relative;
+   top: -17px;
+   left: 447px;
+   padding: 8px;
+   font-size: 17px;
+   letter-spacing: 0.4px;
+   color: #fff;
+   border: none;
+   background: transparent;
+   cursor: pointer;
+}
+
+.modal-text {
+   font-size: 20px;
+}
